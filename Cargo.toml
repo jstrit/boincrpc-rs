@@ -1,0 +1,6 @@
+[package]
+name = "boincrpc"
+version = "0.1.0"
+authors = ["John"]
+
+[dependencies]
