@@ -1,6 +1,7 @@
 [package]
-name = "boincrpc"
-version = "0.1.0"
-authors = ["John"]
+name = "boincrpc-rs"
+version = "0.0.1"
+authors = ["John Stritenberger"]
 
 [dependencies]
+xml-rs = "0.7"
