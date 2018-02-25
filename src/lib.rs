@@ -1,3 +1,8 @@
+#![allow(dead_code)]
+#![allow(unused_imports)]
+
+pub mod rpc;
+
 use std::net::*;
 use std::io::*;
 
@@ -21,15 +26,6 @@ impl BoincRpc {
         stream.set_read_timeout(Some(std::time::Duration::from_secs(3)))?;
         stream.set_nodelay(true)?;
         Ok(BoincRpc { stream })
-    }
-    /// Get the connected BOINC client state.
-    pub fn get_state(&mut self) -> Result<String> {
-        let get_state_rpc =
-            b"<boinc_gui_rpc_request>\n<get_state/>\n</boinc_gui_rpc_request>\n\x03";
-        self.stream.write(get_state_rpc)?;
-        let mut response: [u8; 1056] = [0; 1056];
-        self.stream.read(&mut response)?;
-        Ok(String::from_utf8(response.to_vec()).unwrap())
     }
 }
 
